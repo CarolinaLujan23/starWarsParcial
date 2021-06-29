@@ -37,14 +37,16 @@ class Planeta {
 		return self.potenciaAparente() / self.potenciaReal() >= 2 
 	}
 	
-	method recibirAtributo(atributo) {  }
+	method recibirTributo() { 
+		return habitantes.forEach({ h => h.darUnTributo(self)})
+	}
 	
 	method habitantesValiosos() {
 		return habitantes.filter({ h => h.valor() >= 40 })
 	}
 	
 	method apaciguarPlaneta(unPlaneta) {
-		return habitantes.forEach({ h => h.darTributos(unPlaneta)}) //??
+		return habitantes.forEach({ h => h.darUnTributo(unPlaneta)}) //??
 	}
 }
 
