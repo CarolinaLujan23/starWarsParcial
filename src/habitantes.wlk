@@ -1,22 +1,19 @@
 import planeta.*
 
 class Persona {
-	var property inteligencia = 0
 	var property potencia = 20
-	var property edad = 0
+	var property edad
 
 	method inteligencia() {
-		if(edad.between(20, 40)) {
+		if(self.edad().between(20, 40)) {
 			return 12
 		} else {
 			return 8
 		}
 	}
-	
-	method potencia() { return potencia }
 		
 	method esDestacada() {
-		return edad == 25 or edad == 35
+		return self.edad() == 25 or self.edad() == 35
 	}		
 	
 	method valor() {
@@ -27,19 +24,17 @@ class Persona {
 class Atleta inherits Persona {
 	var property masaMuscular = 4
 	var property cantidadDeTecnicas = 2
-	var property dias = 5
-	var property kilos = 1
 	 
 	override method potencia() {
 		return masaMuscular * cantidadDeTecnicas
 	}
 	
 	override method esDestacada() {
-		return masaMuscular > 5 
+		return super() or masaMuscular > 5 
 	}
 	
-	method entrenar() {
-		return masaMuscular == 1 * (dias)
+	method entrenar(dias) {
+		return masaMuscular + dias / 5
 	}
 	
 	method aprenderUnaTecnica() {
@@ -51,7 +46,7 @@ class Docente inherits Persona {
 	var property cantidadDeCursos = 0
 	
 	override method inteligencia() {
-		return cantidadDeCursos * 2
+		return super() + cantidadDeCursos * 2
 	} 
 	
 	override method esDestacada() {
@@ -61,4 +56,22 @@ class Docente inherits Persona {
 	override method valor() {
 		return super() + 5
 	}
+}
+
+class Soldado inherits Persona {
+	var property armas = []
+	
+	override method potencia(arma) {
+		return self.valor() + armas.sum({ a => arma.potencia() }) 
+	}
+}
+
+class Pistolete {
+	var property largo 
+	var property potencia 
+	
+	method potencia() {
+		if()
+}
+	
 }

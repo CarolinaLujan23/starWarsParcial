@@ -42,5 +42,7 @@ class Planeta {
 	method habitantesValiosos() {
 		return habitantes.filter({ h => h.valor() >= 40 })
 	}
+	
+	method apaciguarPlaneta(unaPlaneta, otroPlaneta) {	}
 }
 
