@@ -19,6 +19,8 @@ class Persona {
 	method valor() {
 		return self.potencia() + self.inteligencia()
 	}
+	
+	method darUnTributo(unPlaneta) {  }
 }
 
 class Atleta inherits Persona {
@@ -40,6 +42,10 @@ class Atleta inherits Persona {
 	method aprenderUnaTecnica() {
 		return cantidadDeTecnicas + 1
 	}
+	
+	override method darUnTributo(unPlaneta) { 
+		unPlaneta.construiMurallas(2)
+	}
 }
 
 class Docente inherits Persona {
@@ -56,13 +62,21 @@ class Docente inherits Persona {
 	override method valor() {
 		return super() + 5
 	}
+	
+	override method darUnTributo(unPlaneta) { 
+		unPlaneta.fundarMuseo()
+	}
 }
 
 class Soldado inherits Persona {
 	var property armas = []
 	
 	override method potencia(arma) {
-		return self.valor() + armas.sum({ a => arma.potencia() }) 
+		return self.valor() + armas.sum({ a => arma.potencia(self) }) 
+	}
+	
+	override method darUnTributo(unPlaneta) { 
+		unPlaneta.construiMurallas(5)
 	}
 }
 

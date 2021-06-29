@@ -2,7 +2,7 @@ import habitantes.*
 
 class Planeta {
 	var property habitantes = []
-	var property museos = []
+	var property museos 
 	var property longitudMurallas
 	
 	method delegacionDiplomatica() {
@@ -25,8 +25,8 @@ class Planeta {
 		return longitudMurallas + longitud
 	}
 	
-	method fundarMuseo(museo) {
-		return museos.add(museo)
+	method fundarMuseo() {
+		return museos + 1
 	}
 	
 	method potenciaAparente() {
@@ -34,7 +34,7 @@ class Planeta {
 	}
 	
 	method necesitaReforzarse() {
-		return self.potenciaAparente() * 2 > self.potenciaReal()  
+		return self.potenciaAparente() / self.potenciaReal() >= 2 
 	}
 	
 	method recibirAtributo(atributo) {  }
@@ -43,6 +43,8 @@ class Planeta {
 		return habitantes.filter({ h => h.valor() >= 40 })
 	}
 	
-	method apaciguarPlaneta(unaPlaneta, otroPlaneta) {	}
+	method apaciguarPlaneta(unPlaneta) {
+		return habitantes.forEach({ h => h.darTributos(unPlaneta)}) //??
+	}
 }
 
