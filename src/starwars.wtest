@@ -11,37 +11,54 @@ describe "starWars" {
 //-----
 	const monica = new Docente(edad = 45, cantidadDeCursos = 6)
 	const luisa = new Docente(edad = 35, cantidadDeCursos = 1)
+//-----
+	const triton = new Planeta( habitantes = #{julieta, ana, rosa, perla, monica, luisa}, museos = 0, longitudMurallas = 0)	
+
+
+
+
 
 	test "personas (potencias)" {
 		assert.equals(20, julieta.potencia())
-//-----
 		assert.equals(28, ana.potencia())
 		assert.equals(52, rosa.potencia())
 		assert.equals(44, perla.potencia())
-//-----
 		assert.equals(20, monica.potencia())
 		assert.equals(20, luisa.potencia())
 	}
 
 	test "personas (inteligencia)" {
 		assert.equals(8, julieta.inteligencia())
-//-----	
 		assert.equals(12, ana.inteligencia())
 		assert.equals(8, rosa.inteligencia())
 		assert.equals(12, perla.inteligencia())
-//-----		
 		assert.equals(20, monica.inteligencia())
 		assert.equals(14, luisa.inteligencia())
 	}
 
 	test "personas destacadas" {
-		assert.notThat(julieta.esDestacada())
-//-----		
+		assert.notThat(julieta.esDestacada())	
 		assert.that(ana.esDestacada())
 		assert.that(rosa.esDestacada())
 		assert.notThat(perla.esDestacada())
-//-----		
 		assert.that(monica.esDestacada())
 		assert.notThat(luisa.esDestacada())
+	}
+	
+		test "tritón" {
+		assert.equals( #{ana,rosa,monica}, triton.delegacionDiplomatica())
+		assert.equals(2, triton.valorInicialDefensa())
+		assert.notThat(triton.esCulto())
+		assert.equals(184, triton.potenciaReal())
+	}
+	
+	test "perla"{
+		perla.entrenar(15)
+		perla.aprenderUnaTecnica()
+		assert.equals(65,perla.potencia())
+		assert.equals(12,perla.inteligencia())
+		assert.notThat(perla.esDestacada())
+		perla.aprenderUnaTecnica()
+		assert.that(perla.esDestacada())
 	}
 }

@@ -14,7 +14,7 @@ class Planeta {
 	}
 	
 	method esCulto() {
-		return museos.size() > 2 and habitantes.all({ h => h.potencia() >= 10 })
+		return museos.size() > 2 and habitantes.all({ h => h.inteligencia() >= 10 })
 	}
 	
 	method potenciaReal() {

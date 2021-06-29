@@ -26,15 +26,15 @@ class Atleta inherits Persona {
 	var property cantidadDeTecnicas = 2
 	 
 	override method potencia() {
-		return masaMuscular * cantidadDeTecnicas
+		return self.masaMuscular() * self.cantidadDeTecnicas()
 	}
 	
 	override method esDestacada() {
-		return super() or masaMuscular > 5 
+		return super() or self.masaMuscular() > 5 
 	}
 	
 	method entrenar(dias) {
-		return masaMuscular + dias / 5
+		return self.masaMuscular() + dias / 5
 	}
 	
 	method aprenderUnaTecnica() {
@@ -72,9 +72,9 @@ class Pistolete {
 	
 	method potencia(soldado) { 
 		if(soldado.edad() > 30) {
-			return largo * 3 
+			return self.largo() * 3 
 		} else {
-			return largo * 2
+			return self.largo() * 2
 		}
 	}
 	
@@ -85,7 +85,7 @@ class Espadon {
 	
 	method potencia(soldado) {
 		if(soldado.edad() < 40) {
-			return peso / 2
+			return self.peso() / 2
 		} else {
 			return 6
 		}
