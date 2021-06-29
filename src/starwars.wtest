@@ -1,3 +1,13 @@
 import habitantes.*
 import planeta.*
 
+describe "starWars" {
+	
+	const julieta = new Persona()
+	const ana = new Persona()
+	const rosa = new Persona()
+	const perla = new Persona()
+	const monica = new Persona()
+	const luisa = new Persona()
+	
+}
