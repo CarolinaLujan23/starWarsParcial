@@ -18,12 +18,16 @@ class Persona {
 	method esDestacada() {
 		return edad == 25 or edad == 35
 	}		
+	
+	method valor() {
+		return self.potencia() + self.inteligencia()
+	}
 }
 
 class Atleta inherits Persona {
 	var property masaMuscular = 4
 	var property cantidadDeTecnicas = 2
-	var property dias = 0
+	var property dias = 5
 	var property kilos = 1
 	 
 	override method potencia() {
@@ -35,7 +39,7 @@ class Atleta inherits Persona {
 	}
 	
 	method entrenar() {
-		return masaMuscular == 1 * (dias == 5)
+		return masaMuscular == 1 * (dias)
 	}
 	
 	method aprenderUnaTecnica() {
@@ -52,5 +56,9 @@ class Docente inherits Persona {
 	
 	override method esDestacada() {
 		return cantidadDeCursos > 3
+	}
+	
+	override method valor() {
+		return super() + 5
 	}
 }
